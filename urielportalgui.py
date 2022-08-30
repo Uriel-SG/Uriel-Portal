@@ -4,6 +4,8 @@ from tkinter import ttk
 from tkinter.messagebox import showerror
 import json
 from kivy.core.clipboard import Clipboard
+import os
+import hashlib
 
 with open('users.json', 'r') as openfile:
 	users = json.load(openfile)
@@ -233,14 +235,22 @@ def portal():
 		user_pass = entrypass.get()
 		entryuser.delete("0", tk.END)
 		entrypass.delete("0", tk.END)
-		if user_name in users and str(user_pass) == users[user_name]:
-			new()
+		if user_name in users:
+			key = users[user_name]
+			hashed = hashlib.blake2s(user_pass.encode('utf-8')).hexdigest()
+			if key == hashed:
+				new()
+			else:
+				showerror(
+		        title='Errore',
+		        message="Nome utente o password errati"
+		   	 )
 		else:
-			showerror(
-	        title='Errore',
-	        message="Nome utente o password errati"
-	    )
-	
+				showerror(
+		        title='Errore',
+		        message="Nome utente o password errati"
+		   	 )
+		   
 	username = tk.Label(text="\nUsername:")
 	username.pack()
 	

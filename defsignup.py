@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter.messagebox import showerror
 import json
+import os
+import hashlib
 
 with open('users.json', 'r') as openfile:
 	users = json.load(openfile)
@@ -42,7 +44,9 @@ def signup():
 	def callportal():
 		global users
 		if entrypass.get() == entrypassrep.get():
-			users[entryuser.get()] = entrypass.get()
+			password = entrypass.get()
+			hashed = hashlib.blake2s(password.encode('utf-8')).hexdigest()
+			users[entryuser.get()] = hashed
 			
 			json_object = json.dumps(users, indent=4)
 			with open("users.json", "w") as outfile:
