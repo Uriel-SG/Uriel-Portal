@@ -273,7 +273,10 @@ def portal():
 	def signup():
 		global user_upk
 		user_upk = upk.get()
-		if user_upk == "16f5foyf4962" or user_upk == "z6r2od932":
+		upk_hashed = hashlib.blake2s(user_upk.encode('utf-8')).hexdigest()
+		with open("upk.txt", "r") as file:
+			UPK = file.read()
+		if upk_hashed == UPK:
 			finestra.destroy()
 			import defsignup
 		else:
