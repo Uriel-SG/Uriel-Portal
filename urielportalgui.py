@@ -205,9 +205,6 @@ def urielcode():
 	
 	window.mainloop()
 
-
-
-
 user_name = ""
 user_pass = ""
 user_upk = ""
@@ -228,8 +225,6 @@ def portal():
 	smallerlogo = logo.subsample(4, 4)
 	uriel = tk.Label(image=smallerlogo, bg='black')
 	uriel.pack(fill=tk.X)
-	
-	#Functions
 	
 	def login():
 		global user_name
@@ -284,6 +279,4 @@ def portal():
 	
 	finestra.mainloop()
 
-
-		
 portal()

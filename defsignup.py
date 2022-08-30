@@ -48,13 +48,14 @@ def signup():
 			with open("users.json", "w") as outfile:
 				outfile.write(json_object)
 			finestra.destroy()
-			from urielportalgui import portal
+			import urielportalgui 
 		else:
 			entryuser.delete("0", tk.END)
 			entrypass.delete("0", tk.END)
 			entrypassrep.delete("0", tk.END)
 			showerror(title="Errore", message="Le due password non coincidono!")
-			callportal()
+			finestra.destroy()
+			signup()
 			
 	signupbutton = ttk.Button(text="SIGN UP", command=callportal)
 	signupbutton.pack()
