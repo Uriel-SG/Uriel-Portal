@@ -235,8 +235,10 @@ def portal():
 		user_pass = entrypass.get()
 		entryuser.delete("0", tk.END)
 		entrypass.delete("0", tk.END)
-		if user_name in users:
-			key = users[user_name]
+		hashed_user = hashlib.blake2s(user_name.encode('utf-8')).hexdigest()
+		hashed_pass = hashlib.blake2s(user_pass.encode('utf-8')).hexdigest()
+		if hashed_user in users:
+			key = users[hashed_user]
 			hashed = hashlib.blake2s(user_pass.encode('utf-8')).hexdigest()
 			if key == hashed:
 				new()

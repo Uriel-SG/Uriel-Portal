@@ -45,8 +45,10 @@ def signup():
 		global users
 		if entrypass.get() == entrypassrep.get():
 			password = entrypass.get()
-			hashed = hashlib.blake2s(password.encode('utf-8')).hexdigest()
-			users[entryuser.get()] = hashed
+			user = entryuser.get()
+			hashed_p = hashlib.blake2s(password.encode('utf-8')).hexdigest()
+			hashed_u = hashlib.blake2s(user.encode('utf-8')).hexdigest()
+			users[hashed_u] = hashed_p
 			
 			json_object = json.dumps(users, indent=4)
 			with open("users.json", "w") as outfile:
