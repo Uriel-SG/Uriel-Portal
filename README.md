@@ -12,3 +12,7 @@ Only the users signed up can use it.
 
 To sign up, an UPK ("*Uriel Portal Key*") is needed.
 
+
+Example:
+
+[![Watch the video](https://raw.githubusercontent.com/Uriel-SG/Uriel-Portal/main/example.jpg)](https://youtu.be/8EHYuSfHobg)
