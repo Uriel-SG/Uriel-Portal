@@ -1,6 +1,6 @@
 # Uriel-Portal
 
-![This is an image](https://raw.githubusercontent.com/Uriel-SG/Uriel-Portal/main/uriel-white.png)
+![Image](https://raw.githubusercontent.com/Uriel-SG/Uriel-Portal/main/uriel-white.png)
 
 The **Uriel Code** is a crypto-code created by Uriel-SG in the 2015.
 
